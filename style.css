@@ -25,17 +25,19 @@
 .books{
     display: grid;
     grid-template-columns: repeat(auto-fit, 200px);
-    gap: 20px;
+    gap: 50px;
     padding: 1em;
 }
 
 .book{
     width: 200px;
     height: 300px;
-    border: 1px solid blue;
+    padding: .5em;
+    border-radius: .3vw;
+
 }
 
-.addBook{
+.book + .addBook{
     height: 300px;
     display: flex;
     justify-content: center;
@@ -44,8 +46,6 @@
 
 
 #add{
-    /* height: 80px;
-    width: 80px; */
     border: none;
     background: none;
     cursor: pointer;
@@ -54,6 +54,27 @@
 #add:hover > svg{
     transform: scale(1.1);
     transition: transform 0.15s linear;
-    color: aqua;
+    color: gray;
 }
 
+.title{
+    font-weight: bolder;
+    border-bottom: 1px solid lightgray;
+}
+
+.author{
+    font-size: .75em;
+}
+
+.pages{
+    font-size: .75em;
+}
+
+.read{
+    border: 1px solid blue;
+} 
+
+.notRead{
+    border: 1px solid red;
+
+} 

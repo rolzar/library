@@ -31,7 +31,7 @@
                 </button>
             </div>
             <div class="bookForm" id="bookForm">
-                <form action="" id="form">
+                <form action="" id="form" onsubmit="formData(); return false">
                     <a href="" class="close" id="close">&times;</a>
                     <label for="title">Title</label>
                     <input type="text" name="title">
@@ -43,6 +43,8 @@
                     
                     <label for="read"></label>
                     <input type="checkbox" name="read">
+
+                    <button type="submit">Add Book</button>
                 </form>
             </div>
 

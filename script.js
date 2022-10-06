@@ -1,37 +1,67 @@
 let myLibrary = [];
+let bookCount = 0;
+const form = document.getElementById("form");
 
+// Form 
 const createBook = document.getElementById('add');
-createBook.addEventListener('mousedown', form);
+createBook.addEventListener('mousedown', formContainer);
+
 const close = document.getElementById("close");
-close.addEventListener('mousedown', () => {
-    document.getElementById('bookForm').style.visibility = "hidden";
+close.addEventListener('mousedown', formClose)
 
-})
-
-function form(){
-    document.getElementById("form").reset();
+function formContainer(){
+    form.reset();
     document.getElementById('bookForm').style.visibility = "visible";
+}
 
+function formClose(){
+    document.getElementById('bookForm').style.visibility = "hidden";
 }
 
 
 
-function Book(name, author,pages){
+
+// Create Book
+
+function formData(){
+    const data = new FormData(form);
+    let order = [];
+
+    for (const value of data.values()) {
+        order.push(value)
+    }
+    if(!(order.includes('on',3))){
+        order.push('not read')
+    };
+    
+    addBookToLibrary(order);
+    bookCount++;
+
+}
+
+
+function Book(name, author,pages,read){
     this.name = name;
     this.author = author;
     this.pages = pages;
+    this.read = read;
 
 }
 
 function addBookToLibrary(object){
-    myLibrary.push(object)
+    formClose();
+    const book = new Book(object[0],object[1],object[2],object[3]);
+    myLibrary.push(book)
+    bookPage();
 
 }
 
-const book1 = new Book('one Piece', 'Oda',1000);
+function bookPage(){
+    myLibrary.forEach(book => {
+        console.log('object');
+    })
 
-addBookToLibrary(book1);
 
+}
 
-// Form 
 
